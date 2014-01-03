@@ -12,7 +12,8 @@ EPFL also has a more complex version if needed: http://kis-doc.epfl.ch/django/dj
 
 2) Add in settings.py :
 
-```AUTHENTICATION_BACKENDS = ( 'yourProject.tequila.Backend', )
+```
+AUTHENTICATION_BACKENDS = ( 'yourProject.tequila.Backend', )
 LOGIN_URL = '/login'
 
 TEQUILA_SERVER = 'https://tequila.epfl.ch' # Url of tequila server
@@ -42,7 +43,8 @@ Create a view with a template bound to url TEQUILA_FAILURE to inform user about 
 6) If you want to be an admin with a tequila user, create an admin account with your sciper as username before using tequila's authentification or use
  shell to manipulate the database :
 
-```python manage.py shell
+```
+python manage.py shell
 from django.contrib.auth.models import User
 user = User.objects.get(username=YOURSCIPER)
 user.is_admin = True
