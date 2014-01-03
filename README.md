@@ -22,7 +22,7 @@ TEQUILA_AUTOCREATE = True # Auto create users ?
 TEQUILA_FAILURE = '/failure' # Where to redirect user if there is a problem
 ```
 
-2b) If you still want to use normal django's authentification, add 'django.contrib.auth.backends.ModelBackend' in AUTHENTICATION_BACKENDS
+2b) If you still want to use normal django's authentification, add `'django.contrib.auth.backends.ModelBackend'` in `AUTHENTICATION_BACKENDS`
 
 3) Add in your urls.py
 
@@ -30,17 +30,17 @@ TEQUILA_FAILURE = '/failure' # Where to redirect user if there is a problem
 
 4) You can login using url /login.
 
-4) (Optionnal)
+5) (Optionnal)
 
 If you want to use this to login in admin section, create in your templates' directory the file admin/login.html with the following content:
 
 `<script type="text/javascript">window.location='/login?next=' + window.location</script>`
 
-5) (Optionnal) 
+6) (Optionnal) 
 
 Create a view with a template bound to url TEQUILA_FAILURE to inform user about problems.
 
-6) If you want to be an admin with a tequila user, create an admin account with your sciper as username before using tequila's authentification or use
+7) If you want to be an admin with a tequila user, create an admin account with your sciper as username before using tequila's authentification or use
  shell to manipulate the database :
 
 ```
