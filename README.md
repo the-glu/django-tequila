@@ -1,6 +1,6 @@
-## Django-tequilla
+## Django-tequila
 
-Simple django lib to use with tequilla.
+Simple django lib to use with tequila.
 
 Sciper is used for username.
 
