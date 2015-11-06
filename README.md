@@ -1,34 +1,35 @@
-## Django-tequilla
+## Simple-django-tequila
 
-Simple django lib to use with tequilla.
+A very simple django login backend to login users with tequila.
 
-Sciper is used for username.
+Sciper is used as username.
 
 EPFL also has a more complex version if needed: http://kis-doc.epfl.ch/django/django-tequila.html
 
 ## Install
 
-1) Copy tequila.py in your django project's folder
+1) `pip install simple-django-tequila`
 
-2) Add in settings.py :
+2) Add to your settings.py :
 
 ```
-AUTHENTICATION_BACKENDS = ( 'yourProject.tequila.Backend', )
+AUTHENTICATION_BACKENDS = ('simple_django_tequila.Backend',)
 LOGIN_URL = '/login'
 
-TEQUILA_SERVER = 'https://tequila.epfl.ch' # Url of tequila server
-TEQUILA_SERVICE = 'Name of your application' # Title used in tequila
-TEQUILA_AUTOCREATE = True # Auto create users ?
-TEQUILA_FAILURE = '/failure' # Where to redirect user if there is a problem
+TEQUILA_SERVER = 'https://tequila.epfl.ch'  # Url of tequila server
+TEQUILA_SERVICE = 'Name of your application'  # Title used in tequila
+TEQUILA_AUTOCREATE = True  # Auto create users ?
+TEQUILA_UPDATE = True  # Update users ?
+TEQUILA_FAILURE = '/failure'  # Where to redirect user if there is a problem
 ```
 
 2b) If you still want to use normal django's authentification, add `'django.contrib.auth.backends.ModelBackend'` in `AUTHENTICATION_BACKENDS`
 
-3) Add in your urls.py
+3) Add to your urls.py
 
-`(r'^login$', 'yourProject.tequila.login'),`
+`url(r'^login$', 'simple_django_tequila.login'),`
 
-4) You can login using url /login.
+4) You can login using url /login. Notice: You don't have to do this, you can use the view `simple_django_tequila.login` as one of your login's methods.
 
 5) (Optionnal)
 
@@ -36,7 +37,7 @@ If you want to use this to login in admin section, create in your templates' dir
 
 `<script type="text/javascript">window.location='/login?next=' + window.location</script>`
 
-6) (Optionnal) 
+6) (Optionnal)
 
 Create a view with a template bound to url TEQUILA_FAILURE to inform user about problems.
 
@@ -45,9 +46,13 @@ Create a view with a template bound to url TEQUILA_FAILURE to inform user about 
 
 ```
 python manage.py shell
-from django.contrib.auth.models import User
-user = User.objects.get(username=YOURSCIPER)
+
+from django.contrib.auth import get_user_model
+
+user = get_user_model().objects.get(username=YOURSCIPER)
+
 user.is_admin = True
 user.is_staff = True
+
 user.save()
 ```
