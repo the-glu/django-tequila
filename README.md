@@ -1,4 +1,9 @@
 ## Simple-django-tequila
+[![PyPI version](https://badge.fury.io/py/simple-django-tequila.svg)](https://badge.fury.io/py/simple-django-tequila)
+[![PyPI](https://img.shields.io/pypi/l/Django.svg)]()
+[![PyPI](https://img.shields.io/badge/PY2-Compatible-green.svg)]()
+[![PyPI](https://img.shields.io/badge/PY3-Compatible-green.svg)]()
+
 
 A very simple django login backend to login users with tequila.
 
