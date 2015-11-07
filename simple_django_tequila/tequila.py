@@ -23,8 +23,6 @@ def do_query(call, data=None):
         # Tequila's encoding
         data = '\n'.join(['{}={}'.format(k, v) for k, v in data.items()])
 
-        print(data)
-
         r = requests.post('{}/cgi-bin/tequila/{}'.format(settings.TEQUILA_SERVER, call), data=data)
     else:
         r = requests.get('{}/cgi-bin/tequila/{}'.format(settings.TEQUILA_SERVER, call))

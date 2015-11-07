@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='simple-django-tequila',
-    version="2.0",
+    version="2.0.1",
     packages=find_packages(),
     author="Maximilien Cuony",
     author_email="simple_django_tequila@fioupfioup.ch",
