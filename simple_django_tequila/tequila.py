@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login, authenticate, get_user_model, REDIRECT_FIELD_NAME
 from django.conf import settings
 from django.utils.http import is_safe_url
+from django.shortcuts import resolve_url
 
 
 import requests
@@ -109,6 +110,7 @@ class Backend:
             user.save()
 
         return user
+
 
 def login(request):
     """Login view"""
