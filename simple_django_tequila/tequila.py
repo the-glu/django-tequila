@@ -38,7 +38,7 @@ def get_request_key(request):
     """Ask tequila server for the key"""
 
     data = {
-        'urlaccess': request.build_absolute_uri(),
+        'urlaccess': request.build_absolute_uri().replace('http://', 'https://'),
         'service': settings.TEQUILA_SERVICE,
         'request': 'name,firstname,email,uniqueid'
     }
